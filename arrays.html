@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+          const inputArray = [1,2,3,4,5,10];
+          // Insert into particular postion
+          function insertIntoPosition(arr, pos, elem) {
+            if (pos < 0 || pos > arr.length) {
+              pos = arr.length;
+            }
+            console.log('pos ', pos);
+            console.log('Original Array ', arr);
+            var i;
+            for (i = arr.length; i >= pos; i--) {
+                arr[i] = arr[i-1];
+            }
+            arr[pos] = elem;
+            console.log('After adding Array ', arr);
+          }
+          insertIntoPosition(inputArray, 6, 12);
+
+          // delete from the postion
+          function deleteFromPosition(arr, pos) {
+            if (pos < 0 || pos > arr.length) {
+              return arr;
+            }
+            console.log('Original Array ', arr);
+            for (var i = pos; i < arr.length - 1; i++) {
+              arr[i] = arr[i+1];
+            }
+            console.log('After Deleting ', arr);
+          }
+          deleteFromPosition(inputArray, 20);
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Arrays problem practice</h3>
+      <p>
+        [1,10,8,11,18]
+      </p>
+    </div>
+  </body>
+</html>

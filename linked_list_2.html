@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+          class Node {
+            constructor(element) {
+              this.data = element;
+              this.next = null;
+            }
+          }
+
+          class LinkedList {
+            constructor() {
+              this.head = null;
+              this.size = 0;
+            }
+
+            append(data) {
+
+              var newNode = new Node(data);
+              if (this.head === null) { // If linked list is empty
+                this.head = newNode;
+              } else {
+                var current = this.head;
+                while (current.next) {
+                  current = current.next;
+                }
+                current.next = newNode;
+              }
+              this.size++;
+            }
+
+            sizeOfList() {
+              return this.size;
+            }
+            printList() {
+              var current = this.head;
+              var str = "";
+              while(current) {
+                str += current.data + " ";
+                current = current.next;
+              }
+              console.log('Linked List ', str);
+            }
+
+            // Insert at the postion
+            insertAtPos(ele, pos) {
+                if (pos < 0 || pos > this.size) {
+                  console.log('Not valid position');
+                  return;
+                }
+                var node = new Node(ele);
+                var cur = this.head;
+                if (pos === 0 ) {
+                  node.next = cur;
+                  this.head = node;
+                } else {
+                  var i = 0;
+                  var prev;
+                  while (i<pos) {
+                    i++;
+                    prev = cur;
+                    cur = cur.next;
+                  }
+                  prev.next = node;
+                  node.next = cur;
+                }
+                this.size++;
+            }
+
+            // Delete from the position
+            deleteNode(pos) {
+              if (pos<0 || pos > this.size) {
+                console.log('Wrong postion');
+                return;
+              }
+
+              var cur = this.head;
+              if (pos === 0) {
+                this.head = cur.next;
+              } else {
+                // traverse to the position
+                var i = 0;
+                var prev;
+                while(i<pos) {
+                  prev = cur;
+                  cur = cur.next;
+                  i++;
+                }
+                prev.next = cur.next;
+              }
+              // Decriment the count
+              this.size--;
+            }
+
+            deleteElement(val) {
+              var cur = this.head;
+              var prev= null;
+              while(cur) {
+                if (val == cur.data) {
+                  if (prev == null) {
+                    this.head = cur.next;
+                  } else {
+                    prev.next = cur.next;
+                  }
+                  this.size--;
+                  break;
+                }
+                prev = cur;
+                cur = cur.next;
+              }
+              console.log('prev node ', prev);
+              console.log('cur node ', cur);
+              this.size--;
+            }
+
+
+            // Ascending order insertation
+            insertListAsAscending(val) {
+              var node = new Node(val);
+              var cur = this.head;
+              if (cur === null || cur.data >= val) {
+                node.next = cur;
+                this.head = node;
+              } else {
+                console.log('cur ', cur);
+                var prev=null;
+                while (cur.next) {
+                  prev = cur;
+                  cur = cur.next;
+                  console.log('prev node ', prev);
+                  console.log('cur node ', cur);
+                }
+                cur.next = node;
+                node.next = cur;
+              }
+              this.size++;
+            }
+          }
+
+
+
+          var ll = new LinkedList();
+          ll.append(10);
+          ll.append(20);
+          ll.append(30);
+          console.log('Size ', ll.sizeOfList())
+          ll.printList();
+          ll.insertAtPos(15,1);
+          ll.printList();
+
+          // Remove the given index from the ll
+          ll.deleteNode(2);
+          ll.printList();
+
+          ll.append(40);
+          ll.printList();
+          // Remove the give node from the ll
+          ll.deleteElement(20);
+          ll.printList();
+
+
+          // Ascending order linked list insert
+          var ll2 = new LinkedList();
+          console.log('Ascending order list insertion')
+          ll2.insertListAsAscending(10);
+          ll2.insertListAsAscending(5);
+          ll2.insertListAsAscending(1);
+          ll2.insertListAsAscending(3);
+          // ll2.insertListAsAscending(7);
+          // ll2.insertListAsAscending(2);
+          // ll2.insertListAsAscending(10);
+          ll2.printList();
+
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Sample Linked List in JS</h3>
+      <p>
+        [[10,->],[20, ->], [30,->], [40, null]];
+      </p>
+    </div>
+  </body>
+</html>

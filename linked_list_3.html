@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+          class Node {
+            constructor(element) {
+              this.data = element;
+              this.next = null;
+            }
+          }
+
+          // Create Nodes
+          const one = new Node(1);
+          const two = new Node(2);
+          const three = new Node(3);
+          const four = new Node(4);
+
+          // Crete a link
+          one.next = two;
+          two.next = three;
+          three.next = four;
+
+          // Print
+          const printLinkedList = (head)=> {
+              cur = head;
+              while (cur != null) {
+                console.log(cur.data);
+                cur = cur.next;
+              }
+          }
+          printLinkedList(one);
+
+          const recursivePrintLL = (head) => {
+            // Base condition
+            if (head == null) return;
+            console.log(head.data);
+            return recursivePrintLL(head.next);
+          }
+          console.log('recursive list traverse')
+          recursivePrintLL(one);
+
+          const sumList = (head)=> {
+            var cur = head;
+            var sum = 0;
+            while(cur != null) {
+              sum += cur.data;
+              cur = cur.next;
+            }
+            return sum;
+          }
+          console.log('Sum of all linked list ', sumList(one));
+
+
+          const a = new Node('A');
+          const b = new Node('B');
+          const c = new Node('C');
+          const d = new Node('D');
+
+          // Crete a link
+          a.next = b;
+          b.next = c;
+          c.next = d;
+
+          console.log('recursive list traverse')
+          recursivePrintLL(a);
+
+          const findTargetNode = (head, target) => {
+            // base case
+            if (head == null) return false;
+            if (head.data == target) return true;
+            return findTargetNode(head.next, target);
+          }
+          console.log('Find the target C in the LL ', findTargetNode(a, 'C'));
+          console.log('Find the target G in the LL ', findTargetNode(a, 'G'));
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Sample Linked List in JS</h3>
+      <p>
+        [[10,->],[20, ->], [30,->], [40, null]];
+      </p>
+    </div>
+  </body>
+</html>
