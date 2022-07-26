@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+
+          const graph = {
+            a: ['b','c'],
+            b: ['d'],
+            c: ['e'],
+            d: ['f'],
+            e: [],
+            f: []
+          };
+
+          // Depth first search using the stack
+          const dfs = (graph, source) => {
+            let stack = [ source ];
+            while (stack.length > 0) {
+              const cur = stack.pop();
+              console.log(cur);
+              for (var neighbore of graph[cur]) {
+                stack.push(neighbore);
+              }
+            }
+          }
+          dfs(graph, 'a');
+
+          const deptFirstSearch = (graph, source)=> {
+            console.log(source);
+            for(let neighbore of graph[source]) {
+              deptFirstSearch(graph, neighbore);
+            }
+          }
+          console.log('deptFirstSearch recursive ');
+          deptFirstSearch(graph, 'a');
+
+          const breadthFirstSearch = (graph, source) => {
+            const queue = [source];
+            while (queue.length > 0) {
+              const cur = queue.shift();
+              console.log(cur)
+              for (let neighbore of graph[cur]) {
+                  queue.push(neighbore);
+              }
+            }
+          }
+          console.log('Breadth First Search ');
+          breadthFirstSearch(graph, 'a');
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Graphs problem practice</h3>
+      <p>
+        const graph = {
+          a: ['b','c'],
+          b: ['d'],
+          c: ['e'],
+          d: ['f'],
+          e: [],
+          f: []
+        };
+      </p>
+      <h3> Dept First search : Iterative </h3>
+      <pre>
+        const dfs = (graph, source) => {
+          let stack = [ source ];
+          while (stack.length > 0) {
+            const cur = stack.pop();
+            console.log(cur);
+            for (var neighbore of graph[cur]) {
+              stack.push(neighbore);
+            }
+          }
+        }
+      </pre>
+      <h3> Dept First search : recursive </h3>
+      <pre>
+        const deptFirstSearch = (graph, source)=> {
+          console.log(source);
+          for(let neighbore of graph[source]) {
+            deptFirstSearch(graph, neighbore);
+          }
+        }
+      </pre>
+    </div>
+  </body>
+</html>

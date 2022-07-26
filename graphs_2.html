@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+
+          const edges = [
+            ['i','j'],
+            ['k','i'],
+            ['m','k'],
+            ['k','l'],
+            ['o','n']
+          ];
+
+          // Converted Graph  {"i":["j","k"],"j":["i"],"k":["i","m","l"],"m":["k"],"l":["k"],"o":["n"],"n":["o"]}
+          // convert the edges to traversable graph
+          const buildGraph = (edges)=> {
+            const graph = {};
+            for (let edge of edges) {
+              const [a,b] = edge;
+              if(!(a in graph)) {
+                graph[a] = [];
+              }
+              if(!(b in graph)) {
+                graph[b] = [];
+              }
+              graph[a].push(b);
+              graph[b].push(a);
+            }
+            return graph;
+          }
+
+
+          const undirectedPath = (edges, src, dst)=> {
+            const graph = buildGraph(edges);
+            console.log('Converted Graph ', JSON.stringify(graph))
+            return hasPath(graph, src, dst, new Set());
+          }
+
+          const hasPath = (graph, src, dst, visited)=> {
+            if (src === dst) {
+              return true;
+            }
+            if (visited.has(src)) {
+              return false;
+            }
+            visited.add(src);
+            for(let neighbore of graph[src]) {
+              if(hasPath(graph, neighbore, dst, visited) === true) {
+                return true;
+              }
+            }
+            return false;
+          }
+
+          console.log('undirected cyclic graph ', undirectedPath(edges, 'j','l'));
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Graphs undirected path finding problem</h3>
+      <p>
+        const edges = [
+          ['i','j'],
+          ['k','i'],
+          ['m','k'],
+          ['k','l'],
+          ['o','m']
+        ];
+      </p>
+
+    </div>
+  </body>
+</html>

@@ -79,6 +79,85 @@
           }
           console.log('Find the target C in the LL ', findTargetNode(a, 'C'));
           console.log('Find the target G in the LL ', findTargetNode(a, 'G'));
+
+          const getNode = (head, index) => {
+            var cur = head;
+            var i = 0;
+            while(cur != null) {
+              if (i == index) {
+                return cur.data;
+              }
+              cur = cur.next;
+              i++;
+            }
+            return false;
+          }
+          console.log('Get node value for index 2 ', getNode(a, 2));
+          console.log('Get node value for index 10 ', getNode(a, 10));
+
+          const reverseLinkedList = (head)=> {
+            var cur = head;
+            var prev = null;
+            while(cur !=null) {
+              const next = cur.next;
+              cur.next = prev;
+              prev = cur;
+              cur = next;
+            }
+            return prev;
+          }
+
+          const rLL = reverseLinkedList(a);
+          recursivePrintLL(rLL);
+
+          const p = new Node('P');
+          const q = new Node('Q');
+          const r = new Node('R');
+          const s = new Node('S');
+          const t = new Node('T');
+
+          // Crete a link
+          p.next = q;
+          q.next = r;
+          r.next = s;
+          s.next = t;
+
+          const m = new Node('M');
+          const n = new Node('N');
+          m.next = n;
+          console.log('zipplocker problem ');
+          console.log('List A ');
+          printLinkedList(p);
+          console.log('List B ');
+          printLinkedList(m);
+
+          const zipplocker = (head1, head2) => {
+            var tail = head1;
+            var cur1 = head1.next;
+            var cur2 = head2;
+            var counter = 0;
+            while (cur1 !=null && cur2 != null) {
+              if (counter%2 === 0) {
+                tail.next = cur2;
+                cur2 = cur2.next;
+              } else {
+                tail.next = cur1;
+                cur1 = cur1.next;
+              }
+              tail = tail.next;
+              counter++;
+            }
+            if (cur1 != null) {
+              tail.next = cur1;
+            }
+            if (cur2 != null) {
+              tail.next = cur2;
+            }
+            return head1;
+          }
+          const zip = zipplocker(p,m);
+          console.log('zipplocked A and B ');
+          printLinkedList(zip);
       };
     </script>
   </head>

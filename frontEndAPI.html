@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array sum problem</title>
+    <style media="screen" language="text/css">
+      .category {
+        width: 300px;
+        display: inline-block;
+      }
+
+      .correct {
+        color: green;
+      }
+      .in_correct {
+        color: red;
+      }
+      .partiallt_correct {
+        color: yellow;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',pageLoader);
+      function pageLoader(event) {
+        // const PRODUCT_URL = 'https://www.algoexpert.io/api/fe/questions';
+        // const Dupe = 'https://api.gousto.co.uk/products/v2.0/categories';
+        //
+        // fetch(Dupe, { mode: 'no-cors'})
+        // .then(function(data) {
+        //   return '[{"id":"sign-up-form","name":"Sign-Up Form","category":"HTML"},{"id":"item-cart","name":"Item Cart","category":"HTML"},{"id":"spaghetti-recipe","name":"Spaghetti Recipe","category":"HTML"},{"id":"blog-post","name":"Blog Post","category":"HTML"},{"id":"rainbow-circles","name":"Rainbow Circles","category":"CSS"},{"id":"navbar","name":"Navbar","category":"CSS"},{"id":"pig-emoji","name":"Pig Emoji","category":"CSS"},{"id":"purchase-form","name":"Purchase // })
+        // .then(function(response) {
+        //   console.log(response);
+        // })
+
+        // console.log('productList ', productList);
+
+        const apiResponse = '[{"id":"sign-up-form","name":"Sign-Up Form","category":"HTML"},{"id":"item-cart","name":"Item Cart","category":"HTML"},{"id":"spaghetti-recipe","name":"Spaghetti Recipe","category":"HTML"},{"id":"blog-post","name":"Blog Post","category":"HTML"},{"id":"rainbow-circles","name":"Rainbow Circles","category":"CSS"},{"id":"navbar","name":"Navbar","category":"CSS"},{"id":"pig-emoji","name":"Pig Emoji","category":"CSS"},{"id":"purchase-form","name":"Purchase Form","category":"CSS"},{"id":"algoexpert-products","name":"AlgoExpert Products","category":"CSS"},{"id":"testing-framework","name":"Testing Framework","category":"JavaScript"},{"id":"array-methods","name":"Array Methods","category":"JavaScript"},{"id":"event-target","name":"Event Target","category":"JavaScript"},{"id":"debounce","name":"Debounce","category":"JavaScript"},{"id":"this-binding","name":"This Binding","category":"JavaScript"},{"id":"promisify","name":"Promisify","category":"JavaScript"},{"id":"throttle","name":"Throttle","category":"JavaScript"},{"id":"curry","name":"Curry","category":"JavaScript"},{"id":"infinite-scroll","name":"Infinite Scroll","category":"DOM Manipulation"},{"id":"stopwatch","name":"Stopwatch","category":"DOM Manipulation"},{"id":"tic-tac-toe","name":"Tic Tac Toe","category":"DOM Manipulation"}]';
+
+        //{"id":"sign-up-form","name":"Sign-Up Form","category":"HTML"},{"id":"item-cart","name":"Item Cart","category":"HTML"}
+        //{"questionId":"blog-post","status":"CORRECT"},{"questionId":"throttle","status":"INCORRECT"},{"questionId":"stopwatch","status":"PARTIALLY_CORRECT"}
+
+        // {"questionId":"1","status":"CORRECT", "questionId":"2","status":"INCORRECT"}
+        const submissions = '[{"questionId":"blog-post","status":"CORRECT"},{"questionId":"throttle","status":"INCORRECT"},{"questionId":"stopwatch","status":"PARTIALLY_CORRECT"},{"questionId":"pig-emoji","status":"CORRECT"},{"questionId":"todo-list","status":"CORRECT"},{"questionId":"testing-framework","status":"CORRECT"},{"questionId":"array-methods","status":"INCORRECT"},{"questionId":"spaghetti-recipe","status":"PARTIALLY_CORRECT"},{"questionId":"algoexpert-products","status":"PARTIALLY_CORRECT"},{"questionId":"curry","status":"CORRECT"},{"questionId":"toasts","status":"INCORRECT"},{"questionId":"tic-tac-toe","status":"CORRECT"},{"questionId":"event-target","status":"CORRECT"},{"questionId":"debounce","status":"PARTIALLY_CORRECT"},{"questionId":"item-cart","status":"CORRECT"},{"questionId":"typeahead","status":"CORRECT"},{"questionId":"tier-list","status":"PARTIALLY_CORRECT"},{"questionId":"sudoku","status":"CORRECT"},{"questionId":"rainbow-circles","status":"INCORRECT"},{"questionId":"infinite-scroll","status":"CORRECT"},{"questionId":"navbar","status":"PARTIALLY_CORRECT"}]';
+
+
+      };
+    </script>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="category">
+        <h2>HTML</h2>
+        <div class="question">
+          <h3 class="correct"> Question-HTML - 1</h3>
+        </div>
+        <div class="question">
+          <h3 class="correct"> Question-HTML - 2</h3>
+        </div>
+        <div class="question">
+          <h3 class="in_correct"> Question-HTML - 3</h3>
+        </div>
+      </div>
+      <div class="category">
+        <h2>CSS</h2>
+        <div class="question">
+          <h3> Question-CSS - 1</h3>
+        </div>
+        <div class="question">
+          <h3 class="correct"> Question-CSS - 2</h3>
+        </div>
+        <div class="question">
+          <h3 class="in_correct"> Question-CSS - 3</h3>
+        </div>
+      </div>
+      <div class="category">
+        <h2>JavaScript</h2>
+        <div class="question">
+          <h3 class="correct"> Question-JS - 1</h3>
+        </div>
+        <div class="question">
+          <h3 class="correct"> Question-JS - 2</h3>
+        </div>
+        <div class="question">
+          <h3 class="in_correct"> Question-JS - 3</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+Given a question to print the layout for the given API.
+He asked about the API interaction and data how much we can fetch at on load.
+He also explained about the different approch about the solution
+- After the rendering Answers status after the the questions are rendered.
+- Attache the Answers along with questions while looping inside the renderQuestion() function.
