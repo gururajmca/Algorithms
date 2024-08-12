@@ -1,4 +1,6 @@
-// Create node
+// Give two non-empty linked lists representing two non-negative integers.
+// The digits are stored in reverse order, and each of their nodes contains a single digit.
+// Add the two numbers and return the sum as a linked list.
 class Node {
   constructor(val) {
     this.data = val;
@@ -21,7 +23,11 @@ console.log(a);
 let x = new Node(5);
 let y = new Node(6);
 let z = new Node(4);
-
+// 342
+// 465
+//-1---
+// 807
+// ans resverse (7-> 0 -> 8)
 // Connnect
 x.next = y;
 y.next = z;

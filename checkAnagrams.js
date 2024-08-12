@@ -1,4 +1,4 @@
-// Input: s = "anagram", t = "nagaram"
+// Input: s = "guru", t = "urug"
 // Output: true
 
 function validAnagram(s, t) {
@@ -28,5 +28,5 @@ function validAnagram(s, t) {
   return true;
 }
 
-const s = "anagram", t = "nagarak";
+const s = "listen", t = "silent";
 console.log(' Two strings are anagram ', validAnagram(s, t));

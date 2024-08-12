@@ -8,8 +8,11 @@ function canAttendMeeting(intervals) {
   // Sorting
   intervals.sort((a, b) => a[0] - b[0]);
 
+  console.log('Sorted intervals =', intervals);
+
   let end = intervals[0][1];
 
+  console.log('End ', end);
   for (var i = 1; i < intervals.length; i++) {
     if (end > intervals[i][0]) {
       return false;
@@ -23,7 +26,7 @@ function canAttendMeeting(intervals) {
 }
 
 
-const time = [[5,10],[0,2], [9, 12]];
-// const time = [[7,10],[2,4]];
+const time = [[5,10], [0,2], [9, 12]];
+// const time = [[5,10], [0,2], [10, 12]];
 
 console.log('Can attaned the meeting with given intervals ', time , ' = ', canAttendMeeting(time));

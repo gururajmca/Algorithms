@@ -35,11 +35,11 @@ const addLinkedList = (list1, list2)=> {
     carry = Math.floor(sum / 10);
     console.log('sum (x + y) ', x, ' + ', y, ' = ',sum, ' --> ', carry);
     cur.next = new Node(sum % 10);
-    cur = cur.next;
     if (a !== null)
       a = a.next;
     if (b !== null)
       b = b.next;
+    cur = cur.next;
   }
   if (carry) {
     cur.next = new Node(carry);

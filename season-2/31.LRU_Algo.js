@@ -6,7 +6,7 @@ class LRU {
 
     get(key) {
         let item = this.cache.get(key);
-        console.log(this.cache);
+        console.log('this.cache', this.cache);
         console.log('item = ', item);
         if (item) {
             // refresh key
@@ -33,7 +33,7 @@ class LRU {
 
 let cache = new LRU(3);
 [1, 2, 3, 4, 5].forEach(v => cache.set(v, 'v:'+v))
-console.log('Is 2 is present in cache ', cache.get(2)); // undefined
+console.log('Is 2 is present in cache ', cache.get(2)); // NO
 console.log('Is 3 is present in cache ', cache.get(3)); // v:3
 cache.set(6, 'v:6');
-console.log('Is 3 is present in cache ', cache.get(4)); // v:3
+console.log('Is 4 is present in cache ', cache.get(4)); // NO

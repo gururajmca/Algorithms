@@ -17,6 +17,7 @@ const candiDistribution = (ratings) => {
 
   let sum = 0;
 
+  console.log('Candies ', candies);
   for (var i = 0; i < candies.length; i++) {
       sum += candies[i];
   }

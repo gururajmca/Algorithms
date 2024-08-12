@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script type="text/javascript">
+    function debounce(fn, delay = 500) {
+      let timeoutId;
+      return(...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(()=> {
+          fn.apply(this, args)
+        }, delay);
+      };
+    }
+
+    function saveInput() {
+      console.log('Save input!!!');
+    }
+
+    const debouncedFunction = debounce(()=> {
+      saveInput();
+    });
+  </script>
+  <body>
+    <h1>Simple Custome Debounce function demo </h1>
+    <input type="text" name="" value="" onkeyup="debouncedFunction()">
+
+  </body>
+</html>

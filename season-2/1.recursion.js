@@ -22,5 +22,5 @@ function factorialNum(n) {
   }
   return n * factorialNum(n-1);
 }
-
+// n * fact(n-1) * fact(n-2) * fact(n-3) .. n=1
 console.log('Factorial of 5 = ', factorialNum(5));
